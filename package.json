@@ -1,0 +1,11 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "express": "4.16.4",
+    "browserify-middleware": "8.1.1",
+    "react": "16.8.6",
+    "react-dom": "*",
+    "array2d": "0.0.5",
+    "cordillera": "2.0.0"
+  }
+}
