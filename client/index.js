@@ -9,6 +9,29 @@ const c = require("cordillera");
 const width = 20;
 const height = 256;
 
+class ErrorBoundary extends React.Component {
+	constructor() {
+		super(...arguments);
+		this.state = {
+			errored: false,
+		};
+	}
+
+	static getDerivedStateFromError() {
+		return {
+			errored: true,
+		};
+	}
+
+	render() {
+		if (this.state.errored) {
+			return elem("p", null, "Oh no! The game ran into an error.");
+		}
+		
+		return this.props.children;
+	}
+}
+
 class GameView extends React.Component {
 	constructor() {
 		super(...arguments);
@@ -59,4 +82,4 @@ class GameView extends React.Component {
 	}
 }
 
-ReactDOM.render(elem(GameView), document.getElementById("app"));
+ReactDOM.render(elem(ErrorBoundary, null, elem(GameView)), document.getElementById("app"));
