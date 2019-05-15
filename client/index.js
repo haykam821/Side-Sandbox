@@ -62,11 +62,12 @@ class GameView extends React.Component {
 							style: {
 								backgroundColor: val,
 								color: "white",
-								border: "1px solid #333",
+								border: val === "gray" && "1px solid #333",
 								display: "inlineBlock",
 								padding: 0,
 								margin: 0,
 								textAlign: "center",
+								boxSizing: "border-box",
 							},
 							width: 30,
 							height: 30,
